@@ -7,7 +7,6 @@ async function updateWorks() {
     works = await reponse.json();
 }
 
-// Toutes ces variables servent à cibler des éléments du fichier HTML
 const catalogue = document.querySelector('#portfolio');
 const header = document.querySelector('header');
 const main = document.getElementById('main');

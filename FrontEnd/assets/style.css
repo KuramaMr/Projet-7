@@ -208,3 +208,8 @@ button {
 	background-color: white;
 	cursor: pointer;
 }
+
+.balise {
+	text-decoration: none;
+	color: black;
+}

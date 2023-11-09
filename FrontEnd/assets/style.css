@@ -186,3 +186,25 @@ footer nav ul {
 	margin: 2em
 }
 
+/******* Ajout Filtre *******/
+
+#filter {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding-bottom: 40px;
+
+}
+
+button {
+	margin: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: solid 1px;
+	border-radius: 60px 60px 60px 60px;
+	color: #1D6154;
+	background-color: white;
+	cursor: pointer;
+}

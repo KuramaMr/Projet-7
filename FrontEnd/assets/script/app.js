@@ -28,7 +28,7 @@ function displayProjects(projects) {
     
 const portfolioSection = document.getElementById('portfolio');
     
-// Vérifie s'il y a déja une galerie, si oui, la remplace const existingGallery = document queryselector ("•gallery');
+// Vérifie s'il y a déja une galerie, si oui, la remplace const existingGallery = document queryselector (".gallery');
 const existingGallery = document.querySelector('.gallery');
 if (existingGallery) {
 existingGallery.outerHTML = gallery;

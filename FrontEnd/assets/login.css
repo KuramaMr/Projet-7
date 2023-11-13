@@ -35,11 +35,13 @@ h1 {
     font-weight: 800;
     color: #B1663C;
 }
+
 h1 span {
     font-family: 'Work Sans';
     font-size: 10px;
     letter-spacing: 0.1em;
 }
+
 h2{
     margin: 0;
     padding: 0;

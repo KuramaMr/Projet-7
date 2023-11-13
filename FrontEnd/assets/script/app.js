@@ -92,3 +92,24 @@ fetch ('http://localhost:5678/api/categories')
         });
         selectedButton.classList.add('filtre-selected');
     }
+
+console.timeStamp('fin du fetch');
+console.log('fin du fetch');
+document.addEventListener('DOMContentLoaded', function() {
+    // Attendre que la page soit entièrement chargée
+
+    // Récupérer l'ancre de l'URL
+    var url = window.location.href;
+    var index = url.indexOf('#');
+    if (index !== -1) {
+        var anchor = url.slice(index + 1);
+
+        // Faire défiler la page jusqu'à l'ancre
+        var targetElement = document.getElementById(anchor);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    console.timeStamp('navigation');
+    console.log('navigation');
+});

@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fcf7f0;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0
+}
+
+li{
+    margin: 15px;
+    font-family: 'Work Sans';
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Syne';
+    font-size: 22px;
+    font-weight: 800;
+    color: #B1663C;
+}
+h1 span {
+    font-family: 'Work Sans';
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+h2{
+    margin: 0;
+    padding: 0;
+    font-family: 'Syne';
+    color: #1D6154;
+}
+
+h3{
+    display: flex;
+    justify-content: center;
+    font-family: 'Syne';
+    color: #1D6154;
+}
+
+#login {
+	width: 50%;
+	margin: auto;
+}
+
+#login > * {
+	text-align: center;
+
+}
+
+#login h2{
+	margin-bottom: 37px;
+}
+
+#login form {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+}
+
+#login input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#login label {
+	margin: 0em 0 1em 0;
+}
+
+#login textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#login form a {
+    text-align: center;
+    color: black;
+}
+
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em
+}
+
+.balise {
+	text-decoration: none;
+	color: black;
+}

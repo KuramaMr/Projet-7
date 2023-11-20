@@ -1,99 +1,84 @@
-// Récupération des images et du texte pour "Mes Projets"
+const apiWorks = "http://localhost:5678/api/works";
+const apiCategories = "http://localhost:5678/api/categories";
+let allProject = []
 
-let allProjects = [];
+fetch(apiWorks)
+  .then(response => response.json())
+  .then(works => {
+    renderProject(works)
+    renderProjectModal(works)
+    allProject = works
+  });
+  fetch(apiCategories)
+      .then(response => response.json())
+      .then(categories => {
+        renderCategories(categories);
+      });
 
-fetch('http://localhost:5678/api/works')
-    .then (response => response.json())
-    .then(data => {
-        allProjects = data;
-        displayProjects(data);
-});
+function renderProject (works) {  
+    let project = document.querySelector(".gallery");
     
-// Création de la gallerie avec les images et les titres associés
-function displayProjects(projects) {
-    const createGallery = () => {
-    const gallery = /*html*/`
-        <div class="gallery">
-    ${projects.map((project) => /*html*/ `
-        <figure>
-            <img src="${project.imageUrl}" alt="${project.title}" />
-            <figcaption>${project.title}</figcaption> 
-            </figure>
-        `).join("")}
-    </div>
-`;
+    project.innerHTML = "";
+
     
-    
-// Cherche la section avec l'id "portfolio"
-    
-const portfolioSection = document.getElementById('portfolio');
-    
-// Vérifie s'il y a déja une galerie, si oui, la remplace const existingGallery = document queryselector (".gallery');
-const existingGallery = document.querySelector('.gallery');
-if (existingGallery) {
-existingGallery.outerHTML = gallery;
-} else {
-// Sinon, ajoute la nouvelle galerie à l'intérieur de la section "portfolio"
-    portfolioSection.insertAdjacentHTML('beforeend', gallery);
-}};
-    
-createGallery(); // Appel de la fonction createdallery pour créer la galerie d'images
-};
 
+    for (let i = 0; i < works.length; i++){
+        let figure = document.createElement("figure");
+        let img = document.createElement("img");
+        let figcaption = document.createElement("figcaption");
 
-fetch ('http://localhost:5678/api/categories')
-    .then(response => response.json())
-    .then(categories => {
-        const filterButtons = document.querySelector('.filtre-buttons');
+        img.setAttribute("src", works[i].imageUrl);
+        figcaption.setAttribute("alt", works[i].title);
+        img.setAttribute("crossorigin", "anonymous");
 
-    // Utilsation map pour générer la structure HTML pour chaque catégorie
+        figcaption.innerHTML = works[i].title;
 
-    const  buttonsHTML = categories.map(category => {
-        return /*html*/ `
-        <button class="filtre">${category.name}</button>
-        `;
-    }).join('');
-
-    // Ajoute le bouton "Tous" en tant que premier bouton
-    const allButtonsHtml = /*html*/ `
-    <button class="filtre filtre-selected">Tous</button>
-    `;
-
-    // Crée la struture complète en combinant le bouton "Tous" avec les boutons catégories
-    const filterButtonsHtml = allButtonsHtml + buttonsHTML;
-
-    // Utilise innerHTML pour mettre à jour le contenu de la div filter-buttons
-    filterButtons.innerHTML = filterButtonsHtml;
-
-    // Récupère tous les boutons de filtre 
-    const buttons = document.querySelectorAll('.filtre-buttons button');
-
-    // Ajoute un event listener à chaque bouton de filtre
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-        // Si le bouton "Tous est cliqué, on appelle "filterProjects" avec categoryId à null.
-        //Sinon, on recherche l'id de la catégorie associée et on appelle "filterPrjects" avec cet id pour filter les projets par catégorie.
-        const categoryId = button.classList.contains('filtre-selected') ? null : categories.find(category => category.name === button.textContent)?.id;
-        filterProjects(categoryId,button);
-        });
-    });
-    });
-
-    function filterProjects(categoryId,selectedButton) {
-        const filteredProjects = !categoryId ? allProjects : allProjects.filter(project => project.categoryId === categoryId);
-        displayProjects(filteredProjects);
-        setSelectedFilter(selectedButton);
+        
+        project.appendChild(figure);
+        figure.append(img, figcaption);
+    }
+      
     }
 
-    function setSelectedFilter(selectedButton) {
-        const buttons = document.querySelectorAll('.filtre-buttons button');
-        buttons.forEach(button => {
-            button.classList.remove('filtre-selected');
-        });
-        selectedButton.classList.add('filtre-selected');
-    }
+    function renderCategories (categories) {  
+    
+      let filtre = document.querySelector(".filtre");
+  
+      filtre.innerHTML = "";
+
+      
+let allButton = document.createElement("button");  
+      allButton.innerHTML = "Tous";
+      filtre.appendChild(allButton);
+      allButton.addEventListener("click", function () {
+        renderProject(allProject);
+        
+      });
+    
+      for (let i = 0 ; i < categories.length; i++){
+
+      
 
 
+        let button = document.createElement("button");
+        button.setAttribute("value", categories[i].name);
+        button.innerHTML = categories[i].name;
+        filtre.appendChild(button);
+        button.addEventListener("click", function (){
+        const filterProject = allProject.filter(function(project){
+                
+                console.log(categories[i].id, project.categoryId)
+
+                return project.categoryId === categories[i].id
+              });
+            
+              renderProject(filterProject)
+            
+
+        }) 
+        
+}
+}
 // REDIRECTION VERS LA PAGE ADMIN
 
 const loginBtn = document.getElementById('loginBtn');

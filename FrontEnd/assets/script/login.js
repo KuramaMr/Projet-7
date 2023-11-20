@@ -1,6 +1,5 @@
-
-const myForm = document.querySelector("#login_form");
-const errorMessage = document.querySelector("#error-message");
+const myForm = document.querySelector("#myForm");
+const errorMessage = document.querySelector("#error-message")
 myForm.addEventListener("submit", function(event) { 
     event.preventDefault(); 
 
@@ -17,7 +16,6 @@ myForm.addEventListener("submit", function(event) {
             password: password,
         }),
     })
-
     // Le message d'erreur qui doit s'afficher
     .then((res) => {
         
@@ -26,21 +24,17 @@ myForm.addEventListener("submit", function(event) {
         }
         return res.json();
     })
-
     .then((data) => {
        console.log(data)
-
-        // Stockage du token dans le local storage
         window.localStorage.setItem("jeton", data.token)
-
         // Rediriger vers la page du site avec des boutons d'actions pour éditer le site
         window.location.href = "index.html";
     })
     .catch((error) => {
-
         // Afficher le message d'erreur
         console.error(error);
         errorMessage.textContent = error.message;
         errorMessage.style.color = "red";
     });
 });
+

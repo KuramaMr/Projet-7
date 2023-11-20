@@ -4,29 +4,33 @@
 	<meta charset="UTF-8">
 	<title>Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
-	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="./assets/style.css">
-	<script type="module" src="./assets/script/app.js"></script>
+	<link rel="stylesheet" href="./assets/modal.css">
+	
 </head>
 
 <div class="mode-edition">
-	<i class="fa-solid fa-pen-to-square"></i>
-	<p>Mode édition</p>
-</div>
-
+		<i class="fa-solid fa-pen-to-square" style="display:none;"></i>
+		<p>Mode édition</p>
+		</div>
+	</div>
 <body>
+
 <header>
+
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li><a href="#portfolio" class="balise">Projets</a></li>
-			<li><a href="#contact" class="balise">Contact</a></li>
-			<li id="loginBtn"><a href="login.html" class="balise">Login</a></li>
-			<li id="logoutBtn" style="display: none;"><a href="index.html">Logout</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			<li><a href="#portfolio">Projets</a></li>
+			<li><a href="#contact">Contact</a></li>
+			<li id="loginBtn"><a href="login.html">login</a></li>
+			<li id="logoutBtn" style="display:none;"><a href="index.html">Logout</a></li>
+			<li><img src="./assets/icons/instagram.png" id="instagram" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
@@ -42,12 +46,102 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
+
 	<section id="portfolio">
+		<div class="modal-projet">
 		<h2>Mes Projets</h2>
-	<div id="filter">	
-		<div class="filtre-buttons">
+
+		<i class="fa-sharp fa-solid fa-pen-to-square" style="display: none;"></i><a href="#modal1" class="js-modal">Modifier</a> 
 		</div>
-	</div>	
+
+		<aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal">
+			<div class="modal-wrapper">
+			  <button class="js-modal-close" type="button"><i class="fa-solid fa-x" ></i></button>
+
+		<h1 id="titlemodal">Galerie photo</h1>
+
+
+				<div class="project-modal">
+			    
+					
+
+				</div>
+
+			<div class="bouton-ajouter-supprimer" >
+			  <button class="js-ajouter-photo">Ajouter une photo</button>
+			
+			<button class="js-supprimer-gallery">Supprimer la galerie</button>
+			</div> 
+
+			</div>
+
+			
+
+		  </aside>
+
+		  <aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal2">
+			<div class="modal-wrapper">
+			  <button class="js-modal-close" type="button"><i class="fa-solid fa-x"></i></button>
+
+			  <i class="fa-solid fa-arrow-left"></i>
+			  
+			  <h1 class="js-modal2">Ajout photo</h1>
+			  
+
+				<div class="project-modal2">
+			    
+					<i class="fa-sharp fa-regular fa-image"></i>
+
+					<form>
+						
+						<label for="file-upload" class="custom-file-upload">
+						  + Ajouter photo
+						</label>
+						<input type="file" id="file-upload" name="image" accept="image/" style="display:none;" required>
+					  </form>
+					
+					<p>jpg, png : 4mo max</p>
+
+				</div>
+
+				<form id="project-form">
+
+
+					<label for="title">Titre</label>
+					<input type="text" id="title" name="title" required>
+				  
+					<label for="category">Catégorie</label>
+					<select id="category" name="category" required>
+					  <option value="1">Objets</option>
+					  <option value="2">Appartements</option>
+					  <option value="3">Hotels & restaurants</option>
+					</select>
+				  
+					<button class="form" type="submit">Valider</button>
+				  </form>
+				  
+			
+			</div>
+		  </aside>
+		  
+		  
+		
+		  
+		  
+
+
+
+	<div id="formulaire">
+		
+		<div class="filtre">
+				
+
+		</div>
+	</div>
+		<div class="gallery">
+
+
+		</div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -64,13 +158,13 @@
 	</section>
 </main>
 
-
 <footer>
 	<nav>
 		<ul>
-			<li><a class="balise" href="#">Mentions Légales</a></li>
+			<li>Mentions Légales</li>
 		</ul>
 	</nav>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>

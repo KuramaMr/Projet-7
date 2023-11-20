@@ -93,23 +93,55 @@ fetch ('http://localhost:5678/api/categories')
         selectedButton.classList.add('filtre-selected');
     }
 
-console.timeStamp('fin du fetch');
-console.log('fin du fetch');
-document.addEventListener('DOMContentLoaded', function() {
-    // Attendre que la page soit entièrement chargée
 
-    // Récupérer l'ancre de l'URL
-    var url = window.location.href;
-    var index = url.indexOf('#');
-    if (index !== -1) {
-        var anchor = url.slice(index + 1);
+// REDIRECTION VERS LA PAGE ADMIN
 
-        // Faire défiler la page jusqu'à l'ancre
-        var targetElement = document.getElementById(anchor);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-    console.timeStamp('navigation');
-    console.log('navigation');
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const buttonModal = document.querySelector('.js-modal');
+const logoModal = document.querySelector('.fa-sharp')
+const boutonFiltre = document.querySelector(".filtre")
+const modeEdition = document.querySelector(".mode-edition")
+const logoModif = document.querySelector(".fa-pen-to-square")
+
+
+
+
+// Vérifier si un utilisateur est connecté
+if (localStorage.getItem("jeton")) {
+
+  // Afficher le bouton de déconnexion
+  logoutBtn.style.display = 'flex';
+
+  // Cacher le bouton login
+  loginBtn.style.display = 'none';
+
+  // Cacher les boutons des filtres
+  boutonFiltre.style.display = 'none';
+
+  logoModal.style.display= 'flex';
+
+  logoModif.style.display="flex"
+
+
+} else{
+  // Cacher le bouton Modifier de la Modal
+  buttonModal.style.display = 'none' ;
+
+  
+
+  modeEdition.style.display= "none"
+}
+
+// DECONNEXION 
+logoutBtn.addEventListener('click', function() {
+
+  // Supprimer le token du local storage
+  localStorage.removeItem('jeton');
+
+  // Cacher le bouton de déconnexion
+  logoutBtn.style.display = 'none';
+
+  // Afficher le lien de connexion
+  loginBtn.style.display = 'inline-block';
 });

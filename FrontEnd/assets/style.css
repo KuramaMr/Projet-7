@@ -221,8 +221,11 @@ footer nav ul {
 	margin: 2em
 }
 
-
-
+.modal-projet {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 .mode-edition{
 	display: flex;
@@ -254,8 +257,12 @@ footer nav ul {
 
 #portfolio .fa-pen-to-square {
 	padding-top: 10px;
-	
 }
+
+.fa-pen-to-square::before{
+	padding-left: 15px;
+	
+  }
 
 .js-modal{
 	padding-top: 10px;

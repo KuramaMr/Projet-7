@@ -121,3 +121,175 @@ button.js-ajouter-photo {
   max-width: 100%;
   height: 104px;
 }
+
+
+.fa-arrow-left {
+  color: black;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.js-modal2 {
+  font-family: 'Work Sans';
+  text-align: center;
+  margin-top: 30px;
+  color: black;
+  font-style: normal;
+  font-weight: 400;
+  padding-top: 5px;
+  margin-bottom: 36px;
+}
+
+.fa-x::before {
+  color: black;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-modal2 {
+  padding-bottom: 20px;
+  width: 420px;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px black;
+  background: #E8F1F6;
+  margin-left: 100px;
+}
+
+#project-form img {
+  max-width: 100%;
+  max-height: 150px;
+}
+
+#project-form div {
+  background: #E8F1F6;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+.custom-file-upload {
+  padding: 10px;
+  border-radius: 50px;
+  background: #CBD6DC;
+  color: #306685;
+  cursor: pointer;
+  margin-right: 127px;
+  margin-left: 126px;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-file-upload label {
+  color: #306685;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.project-modal2 p {
+  padding-top: 10px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #444444;
+}
+
+.fa-image {
+  color: #B9C5CC;
+  font-size: 76px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+label {
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 10px;
+}
+
+#title {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: 0px;
+  padding: 15px;
+}
+
+#category {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: 0px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+    
+.fa-arrows-up-down-left-right {
+  opacity: 0;
+  transition: opacity 0s ease-in-out;
+}
+
+.fa-arrows-up-down-left-right:hover {
+  opacity: 1;
+}
+
+.js-ajouter-photo {
+  background-color: #1D6154;
+  color: white;
+  padding: 10px;
+  margin-right: 170px;
+  margin-left: 170px;
+  font-family: 'Syne';
+  cursor: pointer;
+}
+
+.project-modal p {
+  padding: 0;
+  margin: 0;
+}
+
+.form {
+  background-color: #A7A7A7;
+  color: white;
+  padding: 9px;
+  font-family: 'Syne';
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+
+form#project-form {
+  display: flex;
+  width: 420px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-left: 100px;
+}
+
+button.form {
+  width: 237px;
+  height: 36px;
+}
+

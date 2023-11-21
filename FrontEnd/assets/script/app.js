@@ -204,3 +204,53 @@ function renderProjectModal(works) {
     figure.append(img, figcaption, trashIcon, editModal,);
   }
 }
+
+// Modal 2 Ajout Photo
+
+const ajouterPhotoBtn = document.querySelector('.js-ajouter-photo');
+const modal1 = document.getElementById('modal1');
+const modal2 = document.getElementById('modal2');
+const backArrowBtn = document.querySelector('.fa-arrow-left');
+
+ajouterPhotoBtn.addEventListener('click', () => {
+
+// Passage de modal1 a modal2
+
+  modal2.style.display = 'flex';
+  modal1.style.display = 'none'; 
+
+});
+
+backArrowBtn.addEventListener('click', () => {
+
+ // Passage de modal2 a modal1
+
+  modal1.style.display = 'flex';
+  modal2.style.display = 'none';
+});
+
+
+// Ajout d'un projet
+
+const form = document.getElementById('project-form');
+const fileInput = document.getElementById('file-upload');
+const tokenJeton = window.localStorage.getItem('jeton');
+
+// Affichage de la prévisualisation de l'image sélectionnée
+
+fileInput.addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const previewImg = document.createElement('img');
+    const previewContainer = document.createElement('div');
+    const projectModal2 = document.querySelector('.project-modal2')
+    const reader = new FileReader();
+      reader.onload = function(event) {
+      previewImg.setAttribute('src', event.target.result);
+      previewContainer.appendChild(previewImg);
+      form.insertBefore(previewContainer, form.childNodes[0]);
+    }
+      reader.readAsDataURL(file);
+      projectModal2.style.display = 'none';
+  }
+});

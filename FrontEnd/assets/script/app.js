@@ -1,5 +1,6 @@
 const apiWorks = "http://localhost:5678/api/works";
 const apiCategories = "http://localhost:5678/api/categories";
+
 let allProject = []
 
 fetch(apiWorks)

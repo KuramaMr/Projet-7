@@ -236,6 +236,7 @@ backArrowBtn.addEventListener('click', () => {
 const form = document.getElementById('project-form');
 const fileInput = document.getElementById('file-upload');
 const tokenJeton = window.localStorage.getItem('jeton');
+const btnForm = document.getElementsByClassName('btnForm');
 
 // Affichage de la prévisualisation de l'image sélectionnée
 
@@ -276,6 +277,7 @@ form.addEventListener('submit', function(event) {
   formData.append('title', title);
   formData.append('category', category);
   formData.append('image', file);
+  
 
   // Envoi de la requête pour l'ajout de la photo dans la liste de projets
   fetch('http://localhost:5678/api/works', {

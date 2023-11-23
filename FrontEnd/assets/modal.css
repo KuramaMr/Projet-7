@@ -84,7 +84,6 @@ button.js-ajouter-photo {
   padding-right: 70px;
   padding-left: 68px;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 .project-modal figure {

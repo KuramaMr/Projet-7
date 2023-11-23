@@ -255,3 +255,44 @@ fileInput.addEventListener('change', function(event) {
       projectModal2.style.display = 'none';
   }
 });
+
+// Soumission du formulaire
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // récupération des valeurs du formulaire
+  const title = document.getElementById('title').value;
+  const category = document.getElementById('category').value;
+  const file = document.getElementById('file-upload').files[0];
+
+  // Validation des données du formulaire
+  if (!title || !category || !file) {
+    console.error('Veuillez remplir tous les champs du formulaire');
+    return;
+  }
+  
+  // Création de l'objet FormData pour l'envoi du formulaire
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('category', category);
+  formData.append('image', file);
+
+  // Envoi de la requête pour l'ajout de la photo dans la liste de projets
+  fetch('http://localhost:5678/api/works', {
+    method: 'POST',
+    headers: {
+      Authorization : 'Bearer ' + tokenJeton,
+    },
+    body: formData,
+  })
+
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    
+    // Réinitialisation du formulaire et de la prévisualisation de l'image
+    form.reset();
+    previewContainer.innerHTML = '';
+  })
+  .catch(error => console.error('Erreur lors de l\'ajout du projet :', error));
+});

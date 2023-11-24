@@ -242,6 +242,7 @@ const btnForm = document.getElementsByClassName('btnForm');
 
 fileInput.addEventListener('change', function(event) {
   const file = event.target.files[0];
+  
   if (file) {
     const previewImg = document.createElement('img');
     const previewContainer = document.createElement('div');
@@ -254,6 +255,7 @@ fileInput.addEventListener('change', function(event) {
     }
       reader.readAsDataURL(file);
       projectModal2.style.display = 'none';
+      document.getElementById("btnForm").style.background="#1D6154"
   }
 });
 
@@ -278,7 +280,6 @@ form.addEventListener('submit', function(event) {
   formData.append('category', category);
   formData.append('image', file);
   
-
   // Envoi de la requête pour l'ajout de la photo dans la liste de projets
   fetch('http://localhost:5678/api/works', {
     method: 'POST',

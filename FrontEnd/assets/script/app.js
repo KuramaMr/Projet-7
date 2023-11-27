@@ -10,14 +10,14 @@ fetch(apiWorks)
     renderProjectModal(works)
     allProject = works
 });
+
   fetch(apiCategories)
       .then(response => response.json())
       .then(categories => {
         renderCategories(categories);
 });
 
-
-
+// Création des éléments HTML pour la gallerie 
 function renderProject (works) {  
   let project = document.querySelector(".gallery");
     

@@ -273,7 +273,7 @@ form.addEventListener('submit', function(event) {
     console.error('Veuillez remplir tous les champs du formulaire');
     return;
   }
-  
+
   // Création de l'objet FormData pour l'envoi du formulaire
   const formData = new FormData();
   formData.append('title', title);

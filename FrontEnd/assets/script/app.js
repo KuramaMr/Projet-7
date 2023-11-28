@@ -184,6 +184,7 @@ function renderProjectModal(works) {
     img.setAttribute("crossorigin", "anonymous");
     trashIcon.classList.add('fa-solid', 'fa-trash-can');
    
+    // Suppression d'une photo avec la croix 
 
     trashIcon.addEventListener('click', function() {
       const projectId = works[i].id;

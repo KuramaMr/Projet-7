@@ -11,10 +11,10 @@ fetch(apiWorks)
     allProject = works
 });
 
-  fetch(apiCategories)
-      .then(response => response.json())
-      .then(categories => {
-        renderCategories(categories);
+fetch(apiCategories)
+  .then(response => response.json())
+  .then(categories => {
+    renderCategories(categories);
 });
 
 // Création des éléments HTML pour la gallerie 

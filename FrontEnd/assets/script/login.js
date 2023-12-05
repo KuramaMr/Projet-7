@@ -16,6 +16,7 @@ myForm.addEventListener("submit", function(event) {
             password: password,
         }),
     })
+    
     // Le message d'erreur qui doit s'afficher
     .then((res) => {
         
